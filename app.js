@@ -69,7 +69,7 @@ async function loadNews() {
   refreshBtn.classList.add('spinning');
 
   try {
-    const res  = await fetch('/api/news');
+    const res  = await fetch(`/api/news?t=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
